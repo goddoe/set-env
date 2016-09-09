@@ -1,0 +1,2 @@
+# set_env_for_ubuntu
+set_env_for_ubuntu
