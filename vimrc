@@ -104,7 +104,7 @@ set noshowmode
 let g:airline_exclude_preview=1
 
 " colorscheme
-colorscheme Tomorrow-Night-Bright
+" colorscheme Tomorrow-Night-Bright
 
 " ultsnips
 "Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
