@@ -9,18 +9,6 @@ sudo apt-get install -y libblas-dev liblapack-dev libxml2-dev libxslt1-dev pytho
 sudo apt-get install -y libatlas-base-dev gfortran
 sudo apt-get install -y libhdf5-dev
 
-
-sudo apt-get install -y python3-dev python3-pip
-
-sudo apt-get install -y default-jdk
-
-if [ -z "$JAVA_HOME" ]; then
-    export JAVA_HOME=/usr/lib/jvm/default-java
-    echo "export JAVA_HOME=/usr/lib/jvm/default-java" >> ~/.bashrc
-    echo "export JAVA_HOME=/usr/lib/jvm/default-java" >> ~/.zshrc
-fi
-
-
 # install vim and vim setup
 sudo apt-get install -y vim
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
@@ -32,4 +20,16 @@ sudo apt-get install -y zsh
 sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 chsh -s /usr/bin/zsh
 
+# python
+sudo apt-get install -y python3-dev python3-pip
 sudo pip3 install virtualenv
+
+# java
+sudo apt-get install -y default-jdk
+if [ -z "$JAVA_HOME" ]; then
+    export JAVA_HOME=/usr/lib/jvm/default-java
+    echo "export JAVA_HOME=/usr/lib/jvm/default-java" >> ~/.bashrc
+    echo "export JAVA_HOME=/usr/lib/jvm/default-java" >> ~/.zshrc
+fi
+
+
