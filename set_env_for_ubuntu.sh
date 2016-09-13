@@ -15,11 +15,6 @@ git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 cat ./vimrc >> ~/.vimrc
 vim +PluginInstall +qall
 
-# install zsh and oh-my-zsh
-sudo apt-get install -y zsh
-sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-chsh -s /usr/bin/zsh
-
 # python
 sudo apt-get install -y python3-dev python3-pip
 sudo pip3 install virtualenv
@@ -32,4 +27,8 @@ if [ -z "$JAVA_HOME" ]; then
     echo "export JAVA_HOME=/usr/lib/jvm/default-java" >> ~/.zshrc
 fi
 
+# install zsh and oh-my-zsh
+sudo apt-get install -y zsh
+sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+chsh -s /usr/bin/zsh
 
