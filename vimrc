@@ -52,6 +52,7 @@ Plugin 'honza/vim-snippets'
 """
 
 Plugin 'kien/ctrlp.vim'
+Plugin 'nvie/vim-flake8'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -122,6 +123,15 @@ let g:indentLine_enabled = 1
 "ctrlp & NeadTree
 let g:NERDTreeChDirMode       = 2
 let g:ctrlp_working_path_mode = 'rw'
+
+
+" autopep8
+au FileType python setlocal formatprg=autopep8\ -
+
+" vim-flake8
+let g:flake8_show_in_file=1   " show
+let g:flake8_max_markers=500  " maximum # of markers to show(500 is default)
+
 
 " vi 실행시 number line 생성
 
