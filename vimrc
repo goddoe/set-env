@@ -52,7 +52,7 @@ Plugin 'honza/vim-snippets'
 """
 
 Plugin 'kien/ctrlp.vim'
-Plugin 'nvie/vim-flake8'
+" Plugin 'nvie/vim-flake8'
 Plugin 'scrooloose/syntastic'
 Plugin 'nanotech/jellybeans.vim'
 
@@ -79,7 +79,7 @@ filetype plugin indent on    " required
 let NERDTreeWinPos = "left"
 
 " NERD Tree는 F4키.  매칭.
-nmap <F4> :NERDTree<CR>
+nmap <F7> :NERDTree<CR>
 "nmap <F8> :TagbarToggle<CR>
 nmap <F8> :TagbarOpen j<CR>
 
@@ -131,9 +131,18 @@ let g:ctrlp_working_path_mode = 'rw'
 au FileType python setlocal formatprg=autopep8\ -
 
 " vim-flake8
-let g:flake8_show_in_file=1   " show
-let g:flake8_max_markers=500  " maximum # of markers to show(500 is default)
+" let g:flake8_show_in_file=1   " show
+" let g:flake8_max_markers=500  " maximum # of markers to show(500 is default)
 
+" syntastic
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
 
 " vi 실행시 number line 생성
 
@@ -161,3 +170,14 @@ syntax on
 syntax enable
 
 set backspace=2
+
+" pep8
+au FileType python setlocal formatprg=autopep8\ -
+
+" cursor config
+highlight Cursor guifg=white guibg=black
+highlight iCursor guifg=white guibg=steelblue
+set guicursor=n-v-c:block-Cursor
+set guicursor+=i:ver100-iCursor
+set guicursor+=n-v-c:blinkon0
+set guicursor+=i:blinkwait10
