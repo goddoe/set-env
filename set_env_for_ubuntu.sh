@@ -8,9 +8,11 @@ sudo apt-get install -y pkg-config
 sudo apt-get install -y libblas-dev liblapack-dev libxml2-dev libxslt1-dev python3-lxml
 sudo apt-get install -y libatlas-base-dev gfortran
 sudo apt-get install -y libhdf5-dev
+sudo apt-get install -y ctags
+sudo apt-get install -y libjemalloc1
 
 # install vim and vim setup
-sudo apt-get install -y vim
+sudo apt-get install -y vim-gnome
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 cat ./vimrc >> ~/.vimrc
 vim +PluginInstall +qall
