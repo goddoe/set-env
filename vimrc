@@ -53,6 +53,8 @@ Plugin 'honza/vim-snippets'
 
 Plugin 'kien/ctrlp.vim'
 Plugin 'nvie/vim-flake8'
+Plugin 'scrooloose/syntastic'
+Plugin 'nanotech/jellybeans.vim'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -76,9 +78,8 @@ filetype plugin indent on    " required
 
 let NERDTreeWinPos = "left"
 
-" NERD Tree는 F7키.  매칭.
-
-nmap <F7> :NERDTree<CR>
+" NERD Tree는 F4키.  매칭.
+nmap <F4> :NERDTree<CR>
 "nmap <F8> :TagbarToggle<CR>
 nmap <F8> :TagbarOpen j<CR>
 
@@ -106,6 +107,7 @@ let g:airline_exclude_preview=1
 
 " colorscheme
 " colorscheme Tomorrow-Night-Bright
+colorscheme jellybeans
 
 " ultsnips
 "Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
