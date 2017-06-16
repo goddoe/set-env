@@ -169,10 +169,11 @@ set expandtab "i don't use it!
 syntax on
 syntax enable
 
-set backspace=2
+autocmd Filetype html setlocal ts=2 sw=2 sts=2 expandtab
+autocmd Filetype javascript setlocal ts=2 sw=2 sts=2 expandtab
+autocmd Filetype css setlocal ts=2 sw=2 sts=2 expandtab
 
-" pep8
-au FileType python setlocal formatprg=autopep8\ -
+set backspace=2
 
 " cursor config
 highlight Cursor guifg=white guibg=black
