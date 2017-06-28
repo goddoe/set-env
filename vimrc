@@ -182,3 +182,6 @@ set guicursor=n-v-c:block-Cursor
 set guicursor+=i:ver100-iCursor
 set guicursor+=n-v-c:blinkon0
 set guicursor+=i:blinkwait10
+
+autocmd FileType javascript setlocal sw=2 ts=2 sts=2 expandtab
+autocmd FileType html       setlocal sw=2 ts=2 sts=2 expandtab
