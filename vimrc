@@ -52,12 +52,12 @@ Plugin 'Yggdroot/indentLine'
 """
 
 Plugin 'kien/ctrlp.vim'
-" Plugin 'nvie/vim-flake8'
-Plugin 'scrooloose/syntastic'
-Plugin 'nanotech/jellybeans.vim'
+Plugin 'w0rp/ale'
+
+Plugin 'https://github.com/jpalardy/vim-slime.git'
 
 call vundle#end()            " required
-filetype plugin indent on    " required
+filetype plugin indent on    " requiredk
 " To ignore plugin indent changes, instead use:
 "filetype plugin on
 "
@@ -70,7 +70,8 @@ filetype plugin indent on    " required
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
 
-
+let g:slime_target = "screen"
+let g:slime_python_ipython=1
 
 "Custom add 20160212
 " Vim에서 파일 탐색기를 사용할 수 있게 한다. - Nerd Tree
@@ -106,8 +107,7 @@ set noshowmode
 let g:airline_exclude_preview=1
 
 " colorscheme
-" colorscheme Tomorrow-Night-Bright
-colorscheme jellybeans
+colorscheme Tomorrow-Night-Bright
 
 " ultsnips
 "Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
@@ -133,16 +133,6 @@ au FileType python setlocal formatprg=autopep8\ -
 " vim-flake8
 " let g:flake8_show_in_file=1   " show
 " let g:flake8_max_markers=500  " maximum # of markers to show(500 is default)
-
-" syntastic
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 0
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
 
 " vi 실행시 number line 생성
 
