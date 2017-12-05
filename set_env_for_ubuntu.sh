@@ -10,12 +10,16 @@ sudo apt-get install -y libatlas-base-dev gfortran
 sudo apt-get install -y libhdf5-dev
 sudo apt-get install -y ctags
 sudo apt-get install -y libjemalloc1
+sudo apt-get install -y screen
 
 # install vim and vim setup
 sudo apt-get install -y vim-gnome
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 cat ./vimrc >> ~/.vimrc
 vim +PluginInstall +qall
+
+# set screen config
+cat ./screenrc >> ~/.screenrc
 
 # python
 sudo apt-get install -y python3-dev python3-pip

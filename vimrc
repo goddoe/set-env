@@ -28,12 +28,10 @@ Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
 
 " All of your Plugins must be added before the following line
 
-Plugin 'The-NERD-tree'
 
 " Vim에서 자동완성 기능(Ctrl + P)을 키입력하지 않더라도 자동으로 나타나게 - AutoComplPop
-
+Plugin 'The-NERD-tree'
 Plugin 'AutoComplPop'
-
 Plugin 'majutsushi/tagbar'
 
 Plugin 'vim-airline/vim-airline'
@@ -43,13 +41,6 @@ Plugin 'terryma/vim-multiple-cursors'
 Plugin 'davidhalter/jedi-vim'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'Yggdroot/indentLine'
-
-""" sippet!
-"Track the engine.
-"Plugin 'SirVer/ultisnips'
-"" Snippets are separated from the engine. Add this if you want them:
-"Plugin 'honza/vim-snippets'
-"""
 
 Plugin 'kien/ctrlp.vim'
 Plugin 'w0rp/ale'
@@ -79,7 +70,7 @@ let g:slime_python_ipython=1
 
 let NERDTreeWinPos = "left"
 
-" NERD Tree는 F4키.  매칭.
+" NERD Tree는 F7키.  매칭.
 nmap <F7> :NERDTree<CR>
 "nmap <F8> :TagbarToggle<CR>
 nmap <F8> :TagbarOpen j<CR>
@@ -90,7 +81,6 @@ if exists("$VIRTUAL_ENV")
 else
 	autocmd FileType python map <buffer> <F5> :!python %<CR>
 endif
-
 
 
 filetype on
@@ -134,28 +124,26 @@ au FileType python setlocal formatprg=autopep8\ -
 " let g:flake8_show_in_file=1   " show
 " let g:flake8_max_markers=500  " maximum # of markers to show(500 is default)
 
-" vi 실행시 number line 생성
 
+let g:ale_sign_error = '>>'
+let g:ale_sign_warning = '--'
+" vi 실행시 number line 생성
 set nu
 
 " 코딩 작업시 자동 들여쓰기
-
 set smartindent
 
 " 일반모드에서 / 검색시 하이라이팅
-
 set hlsearch
 
 " 일반모드에서 / 검색시 대소문자 구분하지 않음
-
 set ignorecase
 
 " Tab 관련 설정. 일반적으로 가장 많이 쓰이는 tabstop 4, shiftwidth 4
-
 set ts=4
 set sw=4
 set sts=4
-set expandtab "i don't use it!
+set expandtab 
 syntax on
 syntax enable
 
@@ -164,7 +152,8 @@ autocmd Filetype javascript setlocal ts=2 sw=2 sts=2 expandtab
 autocmd Filetype css setlocal ts=2 sw=2 sts=2 expandtab
 
 set backspace=2
-set mouse=nicr
+" set mouse=nicr
+set mouse=a
 
 " cursor config
 highlight Cursor guifg=white guibg=black
@@ -173,6 +162,3 @@ set guicursor=n-v-c:block-Cursor
 set guicursor+=i:ver100-iCursor
 set guicursor+=n-v-c:blinkon0
 set guicursor+=i:blinkwait10
-
-autocmd FileType javascript setlocal sw=2 ts=2 sts=2 expandtab
-autocmd FileType html       setlocal sw=2 ts=2 sts=2 expandtab
