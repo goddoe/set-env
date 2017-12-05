@@ -1,2 +1,2 @@
-# set_env_for_ubuntu
-set_env_for_ubuntu
+# set_env
+Setting shell, vim and screen env
