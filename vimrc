@@ -30,22 +30,35 @@ Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
 
 
 " Vim에서 자동완성 기능(Ctrl + P)을 키입력하지 않더라도 자동으로 나타나게 - AutoComplPop
-Plugin 'The-NERD-tree'
-Plugin 'AutoComplPop'
-Plugin 'majutsushi/tagbar'
 
+" navigator
+Plugin 'The-NERD-tree'
+Plugin 'majutsushi/tagbar'
+Plugin 'ctrlpvim/ctrlp.vim'
+
+" autocomplete
+Plugin 'Valloric/YouCompleteMe'
+
+" lint
+Plugin 'w0rp/ale'
+
+" snippets
+Plugin 'SirVer/ultisnips' 
+Plugin 'honza/vim-snippets'
+
+" theme
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'axiaoxin/favorite-vim-colorscheme'
+
+" env
+Plugin 'https://github.com/jpalardy/vim-slime.git'
+
+" etc
 Plugin 'terryma/vim-multiple-cursors'
-Plugin 'davidhalter/jedi-vim'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'Yggdroot/indentLine'
 
-Plugin 'kien/ctrlp.vim'
-Plugin 'w0rp/ale'
-
-Plugin 'https://github.com/jpalardy/vim-slime.git'
 
 call vundle#end()            " required
 filetype plugin indent on    " requiredk
@@ -63,6 +76,8 @@ filetype plugin indent on    " requiredk
 
 let g:slime_target = "screen"
 let g:slime_python_ipython=1
+
+let g:ycm_python_binary_path = 'python'
 
 "Custom add 20160212
 " Vim에서 파일 탐색기를 사용할 수 있게 한다. - Nerd Tree
@@ -85,8 +100,7 @@ endif
 
 filetype on
 
-
-" airline!!
+" airline
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#left_sep = ' '
 let g:airline#extensions#tabline#left_alt_sep = '|'
@@ -101,13 +115,15 @@ colorscheme Tomorrow-Night-Bright
 
 " ultsnips
 "Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
-"let g:UltiSnipsExpandTrigger="<tab>"
-"let g:UltiSnipsJumpForwardTrigger="<c-b>"
-"let g:UltiSnipsJumpBackwardTrigger="<c-z>"
-
-" If you want :UltiSnipsEdit to split your window.
-"let g:UltiSnipsEditSplit="vertical"
-" ultisnips end
+let g:UltiSnipsExpandTrigger="<F4>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+let g:UltiSnipsEditSplit="vertical"
+" let g:UltiSnipsSnippetsDir='~/.vim/snips'
+" let g:UltiSnipsSnippetDirectories=['snips', 'UltiSnips']
+let g:snips_author="Sung-ju Kim"
+let g:snips_email="goddoe@gmail.com"
+let g:snips_github="https://github.com/goddoe"
 
 " indent line
 let g:indentLine_enabled = 1 
@@ -116,17 +132,9 @@ let g:indentLine_enabled = 1
 let g:NERDTreeChDirMode       = 2
 let g:ctrlp_working_path_mode = 'rw'
 
-
 " autopep8
 au FileType python setlocal formatprg=autopep8\ -
 
-" vim-flake8
-" let g:flake8_show_in_file=1   " show
-" let g:flake8_max_markers=500  " maximum # of markers to show(500 is default)
-
-
-let g:ale_sign_error = '>>'
-let g:ale_sign_warning = '--'
 " vi 실행시 number line 생성
 set nu
 
@@ -156,9 +164,9 @@ set backspace=2
 set mouse=a
 
 " cursor config
-highlight Cursor guifg=white guibg=black
-highlight iCursor guifg=white guibg=steelblue
-set guicursor=n-v-c:block-Cursor
-set guicursor+=i:ver100-iCursor
-set guicursor+=n-v-c:blinkon0
-set guicursor+=i:blinkwait10
+" highlight Cursor guifg=white guibg=black
+" highlight iCursor guifg=white guibg=steelblue
+" set guicursor=n-v-c:block-Cursor
+" set guicursor+=i:ver100-iCursor
+" set guicursor+=n-v-c:blinkon0
+" set guicursor+=i:blinkwait10
