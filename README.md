@@ -1,2 +1,2 @@
 # set_env
-Setting shell, vim and screen env
+Setting development environments; shell, vim, packages and etc...

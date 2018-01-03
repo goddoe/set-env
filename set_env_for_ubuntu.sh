@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 # install develop env
+apt-get install -y sudo
 sudo apt-get update
 sudo apt-get install -y build-essential git pkg-config ctags libjemalloc1 screen curl
 
@@ -17,7 +18,7 @@ cat ./screenrc >> ~/.screenrc
 
 # python
 sudo apt-get install -y python3-dev python3-pip
-sudo pip3 install virtualenv virtualenvwrapper
+sudo pip3 install -r ./requirements.txt
 
 # install zsh and oh-my-zsh
 sudo apt-get install -y zsh
