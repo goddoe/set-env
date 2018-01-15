@@ -2,8 +2,8 @@
 
 # install develop env
 apt-get install -y sudo
-sudo apt-get update
-sudo apt-get install -y build-essential git pkg-config ctags libjemalloc1 screen curl
+sudo apt-get update -y
+sudo apt-get install -y build-essential git pkg-config ctags libjemalloc1 screen curl cmake
 
 # install vim and vim setup
 sudo apt-get install -y vim-gnome
@@ -11,7 +11,8 @@ git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 cat ./vimrc >> ~/.vimrc
 vim +PluginInstall +qall
 
-~/.vim/bundle/YouCompleteMe/install.py --js-completer --clang-completer
+export python=python3
+~/.vim/bundle/YouCompleteMe/install.py --clang-completer
 
 # set screen config
 cat ./screenrc >> ~/.screenrc
