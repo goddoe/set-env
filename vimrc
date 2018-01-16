@@ -66,14 +66,14 @@ filetype plugin indent on    " requiredk
 " Put your non-Plugin stuff after this line
 
 " vim-slime
-let g:slime_target = "screen"
+let g:slime_target="screen"
 let g:slime_python_ipython=1
 
 " YouCompleteMe
-let g:ycm_python_binary_path = 'python'
+let g:ycm_python_binary_path='python'
 
 " NERD Tree
-let NERDTreeWinPos = "left"
+let NERDTreeWinPos="left"
 nmap <F7> :NERDTree<CR>
 "nmap <F8> :TagbarToggle<CR>
 nmap <F8> :TagbarOpen j<CR>
@@ -124,15 +124,16 @@ if !exists("g:syntax_on")
 endif
 
 set nu
-set smartindent
 set hlsearch " highlight on search
 set ignorecase " ignorecase on search
+set mouse=a
+
+set smartindent
 set ts=4
 set sw=4
 set sts=4
 set expandtab 
 set backspace=2
-set mouse=a
 
 autocmd Filetype html setlocal ts=2 sw=2 sts=2 expandtab
 autocmd Filetype javascript setlocal ts=2 sw=2 sts=2 expandtab
