@@ -5,6 +5,13 @@ apt-get install -y sudo
 sudo apt-get update -y
 sudo apt-get install -y build-essential git pkg-config ctags libjemalloc1 screen curl cmake software-properties-common
 
+# python
+sudo apt-get install -y python3-dev python3-pip
+sudo pip3 install -r ./requirements.txt
+
+sudo ln `which python3` $(dirname `which python3`)/python
+sudo ln `which pip3` $(dirname `which pip3`)/pip
+
 # install vim and vim setup
 # sudo apt-get install -y vim-gnome
 sudo add-apt-repository ppa:jonathonf/vim
@@ -19,11 +26,6 @@ vim +PluginInstall +qall
 
 # set screen config
 cat ./screenrc >> ~/.screenrc
-
-# python
-sudo apt-get install -y python3-dev python3-pip
-sudo pip3 install -r ./requirements.txt
-
 # install zsh and oh-my-zsh
 sudo apt-get install -y zsh
 sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
