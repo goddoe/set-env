@@ -99,7 +99,7 @@ let g:UltiSnipsEditSplit="vertical"
 " let g:UltiSnipsSnippetsDir='~/.vim/snips'
 " let g:UltiSnipsSnippetDirectories=['snips', 'UltiSnips']
 let g:snips_author="Sung-ju Kim"
-let g:snips_email="goddoe@gmail.com"
+let g:snips_email="goddoe2@gmail.com"
 let g:snips_github="https://github.com/goddoe"
 
 " indent line
