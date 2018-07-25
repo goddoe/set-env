@@ -9,7 +9,7 @@ git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 cat ./vimrc >> ~/.vimrc
 vim +PluginInstall +qall
 
-~/.vim/bundle/YouCompleteMe/install.py --js-completer --clang-completer
+python3 ~/.vim/bundle/YouCompleteMe/install.py --clang-completer
 
 cat ./screenrc >> ~/.screenrc
 

@@ -70,7 +70,7 @@ let g:slime_target="screen"
 let g:slime_python_ipython=1
 
 " YouCompleteMe
-let g:ycm_python_binary_path='python'
+let g:ycm_python_binary_path='python3'
 
 " NERD Tree
 let NERDTreeWinPos="left"
