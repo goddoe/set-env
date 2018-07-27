@@ -9,8 +9,8 @@ sudo apt-get install -y build-essential git pkg-config ctags libjemalloc1 screen
 sudo apt-get install -y python3-dev python3-pip
 sudo pip3 install -r ./requirements.txt
 
-sudo ln `which python3` $(dirname `which python3`)/python
-sudo ln `which pip3` $(dirname `which pip3`)/pip
+# sudo ln -s `which python3` $(dirname `which python3`)/python
+# sudo ln -s `which pip3` $(dirname `which pip3`)/pip
 
 # install vim and vim setup
 # sudo apt-get install -y vim-gnome
@@ -22,7 +22,7 @@ git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 cat ./vimrc >> ~/.vimrc
 vim +PluginInstall +qall
 
-~/.vim/bundle/YouCompleteMe/install.py --clang-completer
+python3 ~/.vim/bundle/YouCompleteMe/install.py --clang-completer
 
 # set screen config
 cat ./screenrc >> ~/.screenrc
