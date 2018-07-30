@@ -14,8 +14,8 @@ sudo yum -y install python36u-devel
 
 sudo pip3.6 install -r ./requirements.txt
 
-sudo ln -s `which python3` $(dirname `which python3.6`)/python3
-sudo ln -s `which pip3` $(dirname `which pip3.6`)/pip3
+sudo ln -s `which python3.6` $(dirname `which python3.6`)/python3
+sudo ln -s `which pip3.6` $(dirname `which pip3.6`)/pip3
 
 # install vim and vim setup
 # https://medium.com/@chusiang/install-the-vim-8-0-and-youcompleteme-with-make-on-centos-7-4-1573ad780953
