@@ -7,10 +7,10 @@ sudo yum install -y sudo
 sudo yum install -y ctags libjemalloc1 screen curl cmake yum-utils groupinstall development gcc-c++ ncurses-devel
 
 # python
-# sudo yum -y install https://centos7.iuscommunity.org/ius-release.rpm
-# sudo yum -y install python36u
-# sudo yum -y install python36u-pip
-# sudo yum -y install python36u-devel
+sudo yum -y install https://centos7.iuscommunity.org/ius-release.rpm
+sudo yum -y install python36u
+sudo yum -y install python36u-pip
+sudo yum -y install python36u-devel
 
 sudo pip3.6 install -r ./requirements.txt
 
@@ -26,10 +26,10 @@ cd vim
   --enable-cscope \
   --enable-gui=no \
   --enable-multibyte  \
-  --enable-pythoninterp \
-  --enable-rubyinterp \
+  --enable-rubyinterp=yes \
+  --enable-python3interp=yes \
   --with-features=huge  \
-  --with-python-config-dir=/usr/lib/python2.6/config \
+  --with-python3-config-dir=/usr/lib64/python3.6/config-3.6m-x86_64-linux-gnu \
   --with-tlib=ncurses \
   --without-x
 make && make install
