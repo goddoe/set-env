@@ -3,7 +3,7 @@
 # install develop env
 apt-get install -y sudo
 sudo apt-get update -y
-sudo apt-get install -y build-essential git pkg-config ctags libjemalloc1 screen curl cmake software-properties-common
+sudo apt-get install -y build-essential git pkg-config ctags libjemalloc1 curl cmake software-properties-common tmux
 
 # python
 sudo apt-get install -y python3-dev python3-pip
