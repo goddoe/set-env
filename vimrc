@@ -138,3 +138,5 @@ set backspace=2
 autocmd Filetype html setlocal ts=2 sw=2 sts=2 expandtab
 autocmd Filetype javascript setlocal ts=2 sw=2 sts=2 expandtab
 autocmd Filetype css setlocal ts=2 sw=2 sts=2 expandtab
+ 
+nmap <F6> :IndentLinesToggle<CR>:set invnumber<CR>
