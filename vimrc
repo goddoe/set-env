@@ -66,7 +66,8 @@ filetype plugin indent on    " requiredk
 " Put your non-Plugin stuff after this line
 
 " vim-slime
-let g:slime_target="screen"
+let g:slime_target="tmux"
+let g:slime_paste_file = tempname()
 let g:slime_python_ipython=1
 
 " YouCompleteMe
