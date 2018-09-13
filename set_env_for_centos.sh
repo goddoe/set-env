@@ -4,7 +4,7 @@
 yum install -y sudo
 sudo yum update -y
 sudo yum install -y sudo
-sudo yum install -y ctags libjemalloc1 screen curl cmake yum-utils groupinstall development gcc-c++ ncurses-devel
+sudo yum install -y ctags libjemalloc1 curl make cmake yum-utils groupinstall development gcc-c++ ncurses-devel tmux
 
 # install git 2.x +
 # https://www.lesstif.com/pages/viewpage.action?pageId=14745759
@@ -12,15 +12,15 @@ sudo yum install -y ctags libjemalloc1 screen curl cmake yum-utils groupinstall 
 # rpm -Uvh http://opensource.wandisco.com/centos/6/git/x86_64/wandisco-git-release-6-1.noarch.rpm
 # CentOS7
 rpm -Uvh http://opensource.wandisco.com/centos/7/git/x86_64/wandisco-git-release-7-2.noarch.rpm
-sudo yum --enablerepo=WANdisco-git --disablerepo=base,updates install git
+sudo yum --enablerepo=WANdisco-git --disablerepo=base,updates install -y git
 
 
 
 # python
-sudo yum -y install https://centos7.iuscommunity.org/ius-release.rpm
-sudo yum -y install python36u
-sudo yum -y install python36u-pip
-sudo yum -y install python36u-devel
+sudo yum install -y https://centos7.iuscommunity.org/ius-release.rpm
+sudo yum install -y python36u
+sudo yum install -y python36u-pip
+sudo yum install -y python36u-devel
 
 sudo pip3.6 install -r ./requirements.txt
 
@@ -29,7 +29,7 @@ sudo ln -s `which pip3.6` $(dirname `which pip3.6`)/pip3
 
 # install vim and vim setup
 # https://medium.com/@chusiang/install-the-vim-8-0-and-youcompleteme-with-make-on-centos-7-4-1573ad780953
-sudo yum-builddep vim-X11
+sudo yum-builddep -y vim-X11
 git clone https://github.com/vim/vim.git
 cd vim
 ./configure \
