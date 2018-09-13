@@ -3,7 +3,6 @@
 # install develop env
 yum install -y sudo
 sudo yum update -y
-sudo yum install -y sudo
 sudo yum install -y ctags libjemalloc1 curl make cmake yum-utils groupinstall development gcc-c++ ncurses-devel less openssh-clients perl which perl-Error tmux
 
 
