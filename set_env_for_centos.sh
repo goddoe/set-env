@@ -6,15 +6,6 @@ sudo yum update -y
 sudo yum install -y sudo
 sudo yum install -y ctags libjemalloc1 curl make cmake yum-utils groupinstall development gcc-c++ ncurses-devel less openssh-clients perl which perl-Error tmux
 
-# install git 2.x +
-# https://www.lesstif.com/pages/viewpage.action?pageId=14745759
-# CentOS6
-# rpm -Uvh http://opensource.wandisco.com/centos/6/git/x86_64/wandisco-git-release-6-1.noarch.rpm
-# CentOS7
-rpm -Uvh http://opensource.wandisco.com/centos/7/git/x86_64/wandisco-git-release-7-2.noarch.rpm
-sudo yum --enablerepo=WANdisco-git --disablerepo=base,updates install -y git
-
-
 
 # python
 sudo yum install -y https://centos7.iuscommunity.org/ius-release.rpm
@@ -26,6 +17,15 @@ sudo pip3.6 install -r ./requirements.txt
 
 sudo ln -s `which python3.6` $(dirname `which python3.6`)/python3
 sudo ln -s `which pip3.6` $(dirname `which pip3.6`)/pip3
+
+
+# install git 2.x +
+# https://www.lesstif.com/pages/viewpage.action?pageId=14745759
+# CentOS6
+# rpm -Uvh http://opensource.wandisco.com/centos/6/git/x86_64/wandisco-git-release-6-1.noarch.rpm
+# CentOS7
+rpm -Uvh http://opensource.wandisco.com/centos/7/git/x86_64/wandisco-git-release-7-2.noarch.rpm
+sudo yum --enablerepo=WANdisco-git --disablerepo=base,updates install -y git
 
 # install vim and vim setup
 # https://medium.com/@chusiang/install-the-vim-8-0-and-youcompleteme-with-make-on-centos-7-4-1573ad780953
