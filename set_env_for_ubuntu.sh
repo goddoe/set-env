@@ -25,7 +25,7 @@ vim +PluginInstall +qall
 python3 ~/.vim/bundle/YouCompleteMe/install.py --clang-completer
 
 # set screen config
-cat ./screenrc >> ~/.screenrc
+cat ./tmux.conf >> ~/.tmux.conf
 # install zsh and oh-my-zsh
 sudo apt-get install -y zsh
 sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
