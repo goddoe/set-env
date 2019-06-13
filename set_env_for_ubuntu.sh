@@ -4,9 +4,14 @@
 apt-get install -y sudo
 sudo apt-get update -y
 sudo apt-get install -y build-essential git pkg-config ctags libjemalloc1 curl cmake software-properties-common tmux
+sudo apt-get install -y cmake libopenmpi-dev zlib1g-dev
 
 # python
-sudo apt-get install -y python3-dev python3-pip
+sudo add-apt-repository ppa:jonathonf/python-3.6
+sudo apt-get update
+sudo apt-get install python3.6 python3.6-dev
+curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
+python3.6 get-pip.py
 sudo pip3 install -r ./requirements.txt
 
 # sudo ln -s `which python3` $(dirname `which python3`)/python
@@ -16,7 +21,7 @@ sudo pip3 install -r ./requirements.txt
 # sudo apt-get install -y vim-gnome
 sudo add-apt-repository ppa:jonathonf/vim
 sudo apt update
-sudo apt install vim
+sudo apt install -y vim
 
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 cat ./vimrc >> ~/.vimrc
