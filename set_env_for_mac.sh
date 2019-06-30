@@ -11,9 +11,11 @@ vim +PluginInstall +qall
 
 python3 ~/.vim/bundle/YouCompleteMe/install.py --clang-completer
 
-cat ./screenrc >> ~/.screenrc
+cat ./tmux.conf >> ~/.tmux.conf
 
 # install zsh and oh-my-zsh
 sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 chsh -s /usr/bin/zsh
 
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git
+echo "source ${(q-)PWD}/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" >> ${ZDOTDIR:-$HOME}/.zshrc
