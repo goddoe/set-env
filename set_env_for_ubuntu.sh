@@ -4,7 +4,7 @@
 apt-get install -y sudo
 sudo apt-get update -y
 sudo apt-get install -y build-essential git pkg-config ctags libjemalloc1 curl cmake software-properties-common tmux
-sudo apt-get install -y cmake libopenmpi-dev zlib1g-dev
+sudo apt-get install -y cmake libopenmpi-dev zlib1g-dev python3-distutils
 
 # python
 sudo add-apt-repository ppa:jonathonf/python-3.6
