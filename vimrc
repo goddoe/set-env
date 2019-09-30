@@ -43,6 +43,9 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'axiaoxin/favorite-vim-colorscheme'
 
+" syntax
+Plugin 'posva/vim-vue'
+
 " env
 Plugin 'https://github.com/jpalardy/vim-slime.git'
 
