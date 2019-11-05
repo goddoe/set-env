@@ -49,6 +49,9 @@ Plugin 'posva/vim-vue'
 " env
 Plugin 'https://github.com/jpalardy/vim-slime.git'
 
+" for python
+Plugin 'mgedmin/python-imports.vim'
+
 " etc
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'airblade/vim-gitgutter'
