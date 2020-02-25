@@ -1,4 +1,4 @@
-FROM nvidia/cuda:8.0-cudnn6-runtime
+FROM nvidia/cuda:9.1-cudnn7-devel
 
 RUN apt-get clean && apt-get update && apt-get install -y locales sudo
 RUN locale-gen ko_KR.UTF-8
@@ -11,9 +11,8 @@ RUN mkdir $TMP_DIR
 WORKDIR $TMP_DIR
 COPY . ./
 
-RUN ./set_env_for_ubuntu.sh
+# RUN ./set_env_for_ubuntu.sh
 
 WORKDIR /
-
 
 
