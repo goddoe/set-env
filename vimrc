@@ -79,6 +79,9 @@ let g:slime_python_ipython=1
 " YouCompleteMe
 let g:ycm_python_binary_path='python3'
 
+" ale
+let g:ale_python_flake8_options = '--ignore=F405'
+
 " NERD Tree
 let NERDTreeWinPos="left"
 nmap <F7> :NERDTree<CR>
