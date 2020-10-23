@@ -1,17 +1,10 @@
-FROM nvidia/cuda:9.1-cudnn7-devel
+FROM nvidia/cuda:10.1-cudnn7-devel-ubuntu18.04
 
 RUN apt-get clean && apt-get update && apt-get install -y locales sudo
 RUN locale-gen ko_KR.UTF-8
 ENV LANG ko_KR.UTF-8
 ENV LANGUAGE ko_KR.UTF-8
 ENV LC_ALL ko_KR.UTF-8
-
-ENV TMP_DIR /tmp/set_env 
-RUN mkdir $TMP_DIR
-WORKDIR $TMP_DIR
-COPY . ./
-
-# RUN ./set_env_for_ubuntu.sh
 
 WORKDIR /
 
