@@ -2,20 +2,15 @@
 
 # install develop env
 yum install -y sudo
-sudo yum update -y
-sudo yum install -y ctags libjemalloc1 curl make cmake yum-utils groupinstall development gcc-c++ ncurses-devel less openssh-clients perl which perl-Error tmux
+yum update -y
+yum install -y ctags libjemalloc1 curl make cmake yum-utils groupinstall development gcc-c++ ncurses-devel less openssh-clients perl which perl-Error tmux
 
 
 # python
-sudo yum install -y https://centos7.iuscommunity.org/ius-release.rpm
-sudo yum install -y python36u
-sudo yum install -y python36u-pip
-sudo yum install -y python36u-devel
-
-sudo pip3.6 install -r ./requirements.txt
-
-sudo ln -s `which python3.6` $(dirname `which python3.6`)/python3
-sudo ln -s `which pip3.6` $(dirname `which pip3.6`)/pip3
+wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh \
+    && mkdir ~/.conda \
+    && bash Miniconda3-latest-Linux-x86_64.sh -b \
+    && rm -f Miniconda3-latest-Linux-x86_64.sh
 
 
 # install git 2.x +
@@ -39,7 +34,7 @@ cd vim
   --enable-rubyinterp=yes \
   --enable-python3interp=yes \
   --with-features=huge  \
-  --with-python3-config-dir=/usr/lib64/python3.6/config-3.6m-x86_64-linux-gnu \
+  --with-python3-config-dir=/root/miniconda3/lib/python3.8/config-3.8-x86_64-linux-gnu \
   --with-tlib=ncurses \
   --without-x
 make && make install
