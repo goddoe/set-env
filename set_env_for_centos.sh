@@ -3,7 +3,21 @@
 # install develop env
 #  yum install -y sudo
 yum update -y
-yum install -y ctags libjemalloc1 curl make cmake yum-utils groupinstall development gcc-c++ ncurses-devel less openssh-clients perl which perl-Error tmux
+yum install -y ctags libjemalloc1 curl make yum-utils groupinstall development gcc-c++ ncurses-devel less openssh-clients perl which perl-Error tmux openssh-server xorg xauth 
+
+# install devtools 8 
+yum install -y centos-release-scl
+yum install -y devtoolset-8
+scl enable devtoolset-8 -- bash
+
+# install cmake
+wget https://github.com/Kitware/CMake/archive/refs/tags/v3.14.5.tar.gz
+
+tar -zxf v3.14.5.tar.gz
+pushd CMake-3.14.5
+./bootstrap --prefix=/usr/local
+make && make install 
+popd
 
 
 # python
@@ -25,19 +39,20 @@ yum --enablerepo=WANdisco-git --disablerepo=base,updates install -y git
 # https://medium.com/@chusiang/install-the-vim-8-0-and-youcompleteme-with-make-on-centos-7-4-1573ad780953
 yum-builddep -y vim-X11
 git clone https://github.com/vim/vim.git
+
+# python3_config_dir=`realpath ~/miniconda3/lib/python3.8/config-3.8-x86_64-linux-gnu`
+
 cd vim
-./configure \
-  --disable-nls \
-  --enable-cscope \
-  --enable-gui=auto \
-  --enable-multibyte  \
-  --enable-rubyinterp=yes \
-  --enable-python3interp=yes \
-  --with-features=huge  \
-  --with-python3-config-dir=~/miniconda3/lib/python3.8/config-3.8-x86_64-linux-gnu \
-  --with-tlib=ncurses \
-  --without-x
-make && make install
+./configure --with-features=huge \
+            --enable-multibyte \
+            --enable-rubyinterp=yes \
+            --enable-python3interp=yes \
+            --with-python3-config-dir=$(python3-config --configdir) \
+            --enable-perlinterp=yes \
+            --enable-luainterp=yes \
+            --enable-gui=gtk2 \
+            --enable-cscope \
+            --prefix=/usr/local
 cd ..
 
 # --prefix=/home/jonny/.local/vim \
