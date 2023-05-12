@@ -6,7 +6,7 @@ sudo apt-get update -y
 sudo apt-get install -y build-essential \
                         git \
                         pkg-config \
-                        ctags \
+                        exuberant-ctags \
                         libjemalloc1 \
                         curl \
                         cmake \
@@ -14,6 +14,7 @@ sudo apt-get install -y build-essential \
                         tmux \
                         libopenmpi-dev \
                         zlib1g-dev \
+                        fontconfig \
                         wget
 
 # 1) python
@@ -68,3 +69,15 @@ chsh -s /usr/bin/zsh
 
 # git clone https://github.com/zsh-users/zsh-syntax-highlighting.git
 # echo "source ${(q-)PWD}/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" >> ${ZDOTDIR:-$HOME}/.zshrc
+
+# install font
+FONT_DIR="~/.font"
+mkdir ${FONT_DIR}
+pushd ${FONT_DIR}
+# Ref: https://www.nerdfonts.com/#home
+wget https://github.com/ryanoasis/nerd-fonts/releases/download/v3.0.0/JetBrainsMono.zip
+unzip JetBrainsMono.zip
+popd
+
+fc-cache -fv
+
