@@ -7,6 +7,7 @@
 brew install cmake
 brew install tmux
 brew install neovim
+brew install lazygit
 
 # install font
 brew tap homebrew/cask-fonts
