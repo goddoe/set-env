@@ -64,8 +64,10 @@ vim +PluginInstall +qall
 
 ~/miniconda3/bin/python3 ~/.vim/bundle/YouCompleteMe/install.py --clang-completer
 
-# set screen config
-cat ./tmux.conf >> ~/.tmux.conf
+# set dotfiles
+mkdir -p ~/.config
+cp -r ./config/* ~/.config/
+
 # install zsh and oh-my-zsh
 yum install -y zsh
 sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"

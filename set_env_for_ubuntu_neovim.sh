@@ -54,10 +54,9 @@ popd
 
 fc-cache -fv
 
-#
-
-# set screen config
-cat ./tmux.conf >> ~/.tmux.conf
+# set dotfiles
+mkdir -p ~/.config
+cp -r ./config/* ~/.config/
 
 # install zsh and oh-my-zsh
 sudo apt-get install -y zsh

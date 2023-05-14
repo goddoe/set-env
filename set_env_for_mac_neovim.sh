@@ -12,7 +12,8 @@ brew install neovim
 brew tap homebrew/cask-fonts
 brew install --cask font-jetbrains-mono-nerd-font
 
-cat ./tmux.conf >> ~/.tmux.conf
+mkdir -p ~/.config
+cp -r ./config/* ~/.config/
 
 # install zsh and oh-my-zsh
 sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"

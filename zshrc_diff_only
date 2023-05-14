@@ -1,2 +1,14 @@
-ZSH_THEME="nicoulaj"
+ZSH_THEME="clean"
+
+# aliases
+alias cdsj="cd ~/projects/sj"
 alias vim=nvim
+
+# exports
+export TERM=xterm-256color
+
+# Set OpenAI key for nvim-ai-assistant
+export OPENAI_API_KEY="" 
+
+# lua version 5.1 is due to neovim uses lua 5.1
+eval "$(luarocks --lua-version=5.1 path --bin)"

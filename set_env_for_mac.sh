@@ -11,7 +11,8 @@ vim +PluginInstall +qall
 
 python3 ~/.vim/bundle/YouCompleteMe/install.py --clang-completer
 
-cat ./tmux.conf >> ~/.tmux.conf
+mkdir -p ~/.config
+cp -r ./config/* ~/.config/
 
 # install zsh and oh-my-zsh
 sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
