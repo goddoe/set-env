@@ -16,6 +16,7 @@ sudo apt install -y build-essential \
                         libopenmpi-dev \
                         zlib1g-dev \
                         fontconfig \
+                        luarocks \
                         wget
 
 
@@ -34,6 +35,9 @@ sudo apt install neovim
 # install nvchad
 # git clone https://github.com/NvChad/NvChad ~/.config/nvim --depth 1
 git clone https://github.com/goddoe/NvChad.git ~/.config/nvim --depth 1
+
+# need for nvim-ai-assistant
+sudo luarocks install dkjson
 
 # install fish shell
 # Ref: https://fishshell.com
@@ -63,6 +67,7 @@ LAZYGIT_VERSION=$(curl -s "https://api.github.com/repos/jesseduffield/lazygit/re
 curl -Lo lazygit.tar.gz "https://github.com/jesseduffield/lazygit/releases/latest/download/lazygit_${LAZYGIT_VERSION}_Linux_x86_64.tar.gz"
 tar xf lazygit.tar.gz lazygit
 sudo install lazygit /usr/local/bin
+
 
 # install zsh and oh-my-zsh
 sudo apt-get install -y zsh
