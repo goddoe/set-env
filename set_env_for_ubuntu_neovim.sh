@@ -44,7 +44,7 @@ git clone https://github.com/goddoe/NvChad.git ~/.config/nvim --depth 1
 
 
 # install font
-FONT_DIR="~/.font"
+FONT_DIR="$HOME/.font"
 mkdir ${FONT_DIR}
 pushd ${FONT_DIR}
 # Ref: https://www.nerdfonts.com/#home
