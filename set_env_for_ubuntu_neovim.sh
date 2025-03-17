@@ -8,7 +8,6 @@ sudo apt install -y build-essential \
                         git \
                         pkg-config \
                         exuberant-ctags \
-                        libjemalloc1 \
                         curl \
                         cmake \
                         software-properties-common \
@@ -20,32 +19,37 @@ sudo apt install -y build-essential \
                         wget
 
 
+# libjemalloc1 \
 
-# install miniconda
-wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh \
-    && mkdir ~/.conda \
-    && bash Miniconda3-latest-Linux-x86_64.sh -b \
-    && rm -f Miniconda3-latest-Linux-x86_64.sh \
-    && echo PATH="$(cd ~; pwd -P)/miniconda3/bin":$PATH >> .bashrc
 
+# # install miniconda
+# wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh \
+#     && mkdir ~/.conda \
+#     && bash Miniconda3-latest-Linux-x86_64.sh -b \
+#     && rm -f Miniconda3-latest-Linux-x86_64.sh \
+#     && echo PATH="$(cd ~; pwd -P)/miniconda3/bin":$PATH >> .bashrc
+
+# install uv
+wget -qO- https://astral.sh/uv/install.sh | sh
 
 # install neovim
-sudo apt install neovim
+# sudo apt install neovim
+git clone https://github.com/neovim/neovim.git
+pushd neovim
+make CMAKE_BUILD_TYPE=Release
+sudo make install
+popd
+
+sudo update-alternatives --install `which vim` vim `which nvim` 110
+sudo update-alternatives --install `which editor` editor `which nvim` 110
+
+sudo update-alternatives --config vim
 
 # install nvchad
-# git clone https://github.com/NvChad/NvChad ~/.config/nvim --depth 1
-git clone https://github.com/goddoe/NvChad.git ~/.config/nvim --depth 1
+git clone https://github.com/goddoe/nvchad-starter.git ~/.config/nvim --depth 1
 
 # need for nvim-ai-assistant
 sudo luarocks install dkjson
-
-# install fish shell
-# Ref: https://fishshell.com
-# sudo apt-get install software-properties-common
-# sudo apt-add-repository ppa:fish-shell/release-3
-# sudo apt update
-# sudo apt install fish
-
 
 # install font
 FONT_DIR="$HOME/.font"
