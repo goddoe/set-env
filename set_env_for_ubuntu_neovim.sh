@@ -16,6 +16,7 @@ sudo apt install -y build-essential \
                         zlib1g-dev \
                         fontconfig \
                         luarocks \
+                        language-pack-ko \
                         wget
 
 
@@ -73,6 +74,16 @@ tar xf lazygit.tar.gz lazygit
 sudo install lazygit /usr/local/bin
 
 
+## Set Korean
+# set locale
+sudo locale-gen ko_KR.UTF-8
+
+# find ko_KR.UTF-8 and set the number of ko_KR.UTF-8
+sudo dpkg-reconfigure locales
+
+sudo update-locale LANG=ko_KR.UTF-8 LC_MESSAGES=POSIX
+
+
 # install zsh and oh-my-zsh
 sudo apt-get install -y zsh
 sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
@@ -84,4 +95,6 @@ if [ -z "$JAVA_HOME" ]; then
     echo "export JAVA_HOME=/usr/lib/jvm/default-java" >> ~/.zshrc
 fi
 
+
 sudo chsh -s /usr/bin/zsh
+
