@@ -52,7 +52,8 @@ for d in ~/.config/nvim ~/.config/tmux ~/.oh-my-zsh ~/.local/share/fonts ~/.loca
     [ -e "$d" ] && echo "exists  $d" || echo "absent  $d"
 done
 echo "SHELL=$SHELL login_shell=$(getent passwd "$(id -un)" 2>/dev/null | cut -d: -f7)"
-grep -q 'local/bin/env' ~/.zshrc 2>/dev/null && echo "zshrc: uv env sourced" || echo "zshrc: uv env NOT sourced"
+grep -q 'export PATH="$HOME/.local/bin' ~/.zshrc 2>/dev/null && echo "zshrc: ~/.local/bin in PATH" || echo "zshrc: ~/.local/bin NOT in PATH"
+[ -f ~/.local/bin/env ] && echo "uv env file: present" || echo "uv env file: absent (uv pre-installed or installed differently; do NOT source it unconditionally)"
 
 section "locale"
 locale -a 2>/dev/null | grep -i '^ko' | tr '\n' ' '; echo

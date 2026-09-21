@@ -48,7 +48,8 @@ if [ "$(uname -s)" != "Darwin" ]; then
     [ "$(fc-list 2>/dev/null | grep -ci jetbrains)" -gt 0 ] && ok "JetBrainsMono font in fc-list" || bad "JetBrainsMono font not found by fontconfig"
     sh=$(getent passwd "$(id -un)" | cut -d: -f7); case "$sh" in *zsh) ok "login shell $sh" ;; *) bad "login shell $sh (expected zsh)" ;; esac
 fi
-grep -q 'local/bin/env' ~/.zshrc 2>/dev/null && ok "uv env sourced in .zshrc" || bad "uv env not sourced in .zshrc (oh-my-zsh overwrote it? see pitfalls.md)"
+grep -q 'export PATH="$HOME/.local/bin' ~/.zshrc 2>/dev/null && ok "~/.local/bin PATH export in .zshrc" || bad "~/.local/bin not added to PATH in .zshrc (oh-my-zsh overwrote it? see pitfalls.md)"
+grep -qE '^\s*\. "\$HOME/.local/bin/env"' ~/.zshrc 2>/dev/null && [ ! -f ~/.local/bin/env ] && bad ".zshrc sources ~/.local/bin/env unconditionally but the file does not exist (breaks every zsh start)"
 grep -q 'export JAVA_HOME=' ~/.zshrc 2>/dev/null && ok "JAVA_HOME in .zshrc" || bad "JAVA_HOME not in .zshrc"
 jh=$(grep -o 'export JAVA_HOME=.*' ~/.zshrc 2>/dev/null | head -1 | cut -d= -f2 | tr -d '"')
 [ -n "$jh" ] && { [ -e "$jh" ] && ok "JAVA_HOME path exists: $jh" || bad "JAVA_HOME path does not exist: $jh"; }

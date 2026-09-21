@@ -157,6 +157,18 @@ if [ ! -d "$HOME/.oh-my-zsh" ]; then
     RUNZSH=no CHSH=no KEEP_ZSHRC=yes sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 fi
 
+# zsh 는 .bash_profile 을 읽지 않아 ~/.local/bin 이 PATH 에 없다. uv 설치기의 env 파일은
+# uv 가 이미 설치돼 있으면 생성되지 않으므로 존재를 가정하지 말고 PATH 를 직접 넣는다.
+step "zsh PATH (~/.local/bin)"
+if ! grep -q 'export PATH="$HOME/.local/bin:$HOME/bin:$PATH"' ~/.zshrc 2>/dev/null; then
+    cat >> ~/.zshrc <<'ZRC'
+
+# user-local binaries (uv, claude, ...). uv 설치기의 env 파일은 있을 때만 읽는다.
+export PATH="$HOME/.local/bin:$HOME/bin:$PATH"
+[ -f "$HOME/.local/bin/env" ] && . "$HOME/.local/bin/env"
+ZRC
+fi
+
 # ---------------------------------------------------------------------------
 # java (default-jdk -> java-17-openjdk-devel)
 #   /usr/lib/jvm/java 는 alternatives(java_sdk) 가 관리하는 심볼릭 링크

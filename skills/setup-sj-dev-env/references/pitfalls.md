@@ -9,7 +9,17 @@
 - uv 설치기는 `~/.zshrc` 에 `. "$HOME/.local/bin/env"` 를 추가한다. 그 뒤 oh-my-zsh 설치기가
   기존 `.zshrc` 를 `.zshrc.pre-oh-my-zsh` 로 옮기고 새 템플릿을 깐다. 결과: zsh 에서 `uv` 를 못 찾는다.
 - 예방: oh-my-zsh 설치 시 `RUNZSH=no CHSH=no KEEP_ZSHRC=yes` 를 준다. 또는 oh-my-zsh 를 uv 보다 먼저 설치한다.
-- 검증: `zsh -ic 'command -v uv'`. 없으면 `.zshrc` 에 `. "$HOME/.local/bin/env"` 를 추가한다.
+- 검증: `zsh -ic 'command -v uv'`.
+
+### `~/.local/bin/env` 는 uv 가 이미 설치돼 있으면 존재하지 않는다 — 무조건 source 금지
+- uv 가 미리 설치된 서버에서 스크립트가 uv 단계를 건너뛰자 env 파일이 없었고, `.zshrc` 에 넣어둔 `. "$HOME/.local/bin/env"` 가
+  zsh 를 열 때마다 `no such file or directory` 를 내며 PATH 도 잡히지 않았다. 그 결과 `claude`, `uv` 를 zsh 에서 못 찾았다.
+- 예방: env 파일에 의존하지 말고 PATH 를 직접 넣는다. 파일은 있을 때만 읽는다.
+  ```zsh
+  export PATH="$HOME/.local/bin:$HOME/bin:$PATH"
+  [ -f "$HOME/.local/bin/env" ] && . "$HOME/.local/bin/env"
+  ```
+- 검증: `zsh -ic 'command -v claude uv'` 가 에러 없이 나와야 한다. `verify.sh` 가 무조건 source 줄을 잡아낸다.
 
 ### zsh 에서는 `~/.local/bin` 이 PATH 에 없을 수 있다
 - RHEL/Ubuntu 의 skel `.bash_profile` 이 `~/.local/bin` 을 PATH 에 넣지만 zsh 는 그 파일을 안 읽는다.
